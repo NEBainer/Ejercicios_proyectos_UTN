@@ -46,6 +46,8 @@ for i in range(1,11):
     if genero == "Masculino" and tecnologia != "RV/RA" and edad >= 25 and edad <= 50:
         contador_masculino_IOT_IA += 1
 
+    #Porcentaje de empleados que no votaron por IA, siempre y cuando su género no sea Femenino o su edad se encuentre entre los 33 y 40.
+
 
 #Cantidad de empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive.
 if contador_masculino_IOT_IA > 0:

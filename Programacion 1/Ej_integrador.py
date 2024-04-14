@@ -23,9 +23,16 @@ Nombre y tecnología que votó, de los empleados de género masculino con mayor 
 #Cantidad de empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive.
 contador_masculino_IOT_IA = 0
 
+#Porcentaje de empleados que no votaron por IA, siempre y cuando su género no sea Femenino o su edad se encuentre entre los 33 y 40.
+contador_no_IA_no_fem = 0
+contador_vueltas = 0
+
+#Nombre y tecnología que votó, de los empleados de género masculino con mayor edad de ese género
+contador_masculino = 0
+
 for i in range(1,11):
     nombre = input("Ingrese su nombre: ")
-    while nombre == None and nombre == "":
+    while nombre == None or nombre == "":
         nombre = input("Ingrese un nombre correcto: ")
 
     edad = input("Ingrese su edad: ")
@@ -35,22 +42,49 @@ for i in range(1,11):
         edad = int(edad)
 
     genero = input("Ingrese su genero: ")
-    while genero != "Masculino" and genero != "Femenino" and genero != "Otro" and genero == "" and genero == None:
+    while genero == "" or genero == None or genero != "Masculino" and genero != "Femenino" and genero != "Otro":
         genero = input("Ingrese un genero correcto: ")
 
     tecnologia = input("Ingrese la tecnologia a votar: ")
-    while tecnologia != "IA" and tecnologia != "RV/RA" and tecnologia != "IOT" and tecnologia == " " and tecnologia == None:
-        tecnologia = input("Ingrese una tecnologia correcta")
+    while tecnologia == " " or tecnologia == None or tecnologia != "IA" and tecnologia != "RV/RA" and tecnologia != "IOT":
+        tecnologia = input("Ingrese una tecnologia correcta: ")
 
     #Cantidad de empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive.
     if genero == "Masculino" and tecnologia != "RV/RA" and edad >= 25 and edad <= 50:
         contador_masculino_IOT_IA += 1
 
     #Porcentaje de empleados que no votaron por IA, siempre y cuando su género no sea Femenino o su edad se encuentre entre los 33 y 40.
+    if (tecnologia != "IA" and genero != "Femenino") or edad >= 33 and edad <= 40:
+        contador_no_IA_no_fem += 1
 
+    #Nombre y tecnología que votó, de los empleados de género masculino con mayor edad de ese género
+    if genero == "Masculino":
+        contador_masculino += 1
+
+    if contador_masculino == 1 or edad > edad_mayor_masculino:
+        edad_mayor_masculino = edad
+        nombre_mayor_masculino = nombre
+        tecnologia_mayor_masculino = tecnologia
+
+    contador_vueltas += 1
 
 #Cantidad de empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive.
 if contador_masculino_IOT_IA > 0:
     mensaje = f"La cantidad de empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive es de:{contador_masculino_IOT_IA}\n"
 else:
     mensaje = "No hubo empleados de genero masculino que votaron por IOT o IA, cuya edad esté entre 25 y 50 años inclusive\n"
+
+#Porcentaje de empleados que no votaron por IA, siempre y cuando su género no sea Femenino o su edad se encuentre entre los 33 y 40.
+if contador_no_IA_no_fem > 0:
+    porcentaje_no_IA_no_fem = (contador_no_IA_no_fem / contador_vueltas) * 100
+    mensaje += f"El Porcentaje de empleados que no votaron por IA, siempre y cuando su género no sea Femenino o su edad se encuentre entre los 33 y 40 es de {porcentaje_no_IA_no_fem}%\n"
+else:
+    mensaje += "No hubo empleados que no votaron por IA, y que su genero no sea femenino o su edad se encuentre entre los 33 y 40 años\n"
+
+#Nombre y tecnología que votó, de los empleados de género masculino con mayor edad de ese género
+if contador_masculino > 0:
+    mensaje += f"El Nombre de los empleados de género masculino con mayor edad es {nombre_mayor_masculino} y la tecnologia que voto fue {tecnologia_mayor_masculino}"
+else:
+    mensaje += "No hubo empleados del genero masculino"
+
+print(mensaje)

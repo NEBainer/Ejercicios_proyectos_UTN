@@ -26,6 +26,7 @@ def encontrar_numero_maximo():
         return numero_dos
     else:
         return numero_tres
+#El profe recomienda pasar el retorno a una variable y despues eso es lo que devolves, no es recomendable tener muchos returns
 
 numero_maximo = encontrar_numero_maximo()
 print("El numero maximo ingresado es:", numero_maximo)

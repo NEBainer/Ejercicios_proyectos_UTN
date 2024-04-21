@@ -16,3 +16,15 @@ def calcular_potencia():
 
 numero_final = calcular_potencia()
 print ("El resultado de la potenciacion de los numeros ingresados es:", numero_final)
+
+def get_int(mensaje: str, minimo: int, maximo: int) -> int:
+    numero = input(mensaje)
+    numero = int(numero)
+    while numero < minimo or numero > maximo:
+        numero = input(f"error{mensaje}")
+        numero = int(numero)
+    return numero
+
+edad = get_int("Ingrese su edad: ")#15 - 30
+legajo = get_int("Ingrese su legajo") # 1500 - 2756
+nota = get_int("Ingrese su nota")#1 - 10

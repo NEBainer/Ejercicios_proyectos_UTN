@@ -1,4 +1,4 @@
-from class_video import Video
+from class_video import Video 
 
 lista_videos = [
     Video("Trueno | Sesión #1", 25000000, 210, "https://www.youtube.com/watch?v=trueno1", "2020-06-05"),

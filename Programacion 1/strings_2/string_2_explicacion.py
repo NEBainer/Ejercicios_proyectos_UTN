@@ -1,17 +1,15 @@
-''' 
-# cadena = "hola      pepe        "
-# # SOLO SE USA PARA BORRAR LOS ESPACIOS DE ADELANTE Y ATRAS, FUNCIONA SOLO CON STR
-# cadena = cadena.strip()
 
-# # OTRO MODO DE USO // BORRA LA PALABRA QUE ESTA AL PRINCIPIO
-# cadena = cadena.strip("#")
-# cadena = cadena.strip("hola")
-# # SACA LOS ESPACIOS DEL PRINCIPIO Y DEL FINAL!
-# cadena = cadena.strip()
+cadena = "hola      pepe        "
+# SOLO SE USA PARA BORRAR LOS ESPACIOS DE ADELANTE Y ATRAS, FUNCIONA SOLO CON STR
+cadena = cadena.strip()
 
-# print(cadena)
+# OTRO MODO DE USO // BORRA LA PALABRA QUE ESTA AL PRINCIPIO
+cadena = cadena.strip("#")
+cadena = cadena.strip("hola")
+# SACA LOS ESPACIOS DEL PRINCIPIO Y DEL FINAL!
+cadena = cadena.strip()
 
-'''
+print(cadena)
 
 ### MANEJO DE CARACTERES ###
 ''' UPPER '''
@@ -63,7 +61,7 @@ cadena = "&".join(lista_nombres)
 
 
 ''' ZFILL '''
-# RELLENA LOS CARACTERES FALTANTES CON 00   
+# RELLENA LA CADENA CON CEROS A LA IZQUIERDA HASTA LLEGAR A LA LONGITUD PASADA COMO PARAMETRO
 hora = "01:01"
 
 # print(hora)

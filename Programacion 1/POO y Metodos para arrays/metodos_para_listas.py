@@ -1,7 +1,7 @@
 #Metodo append: Agrega un elemento al final de la lista
 mi_lista = [1,2,3]
 
-mi_lista.append(1) #Le podes pasar lo que te pinte
+mi_lista.append(1) #Le podes pasar lo que te pinte y guarda el elemento que le pasas como parametro al final de la lista
 
 print(mi_lista)
 
@@ -14,6 +14,13 @@ print(mi_lista)
 mi_lista.remove(1)
 
 print(mi_lista)
+
+#Metodo con el remove para ir eleminando un elemento en especifico dentro de una lista
+lista = [1,2,4,2,5,2]
+
+for numero in lista:
+    if numero == 2:
+        lista.remove(numero)
 
 #Pop: Elimina y devuelve el elemento en la posicion dada. Si no se especifica un indice, se elimina y devuelve el ultimo elemento
 elemento = mi_lista.pop(1) #Guarda el elemento que borramos con el pop en la variable

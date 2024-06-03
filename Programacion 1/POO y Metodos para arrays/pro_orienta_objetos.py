@@ -1,9 +1,9 @@
 class Personaje:
     #Atributos
-    #Id - nombre - usa nano - vuela - super poder
+    #Id - nombre - usa nano - vuela - super poder - Poder de pelea
 
     #Constructor(Nos permite inicializar los atributos de una clase con los valores que le ponemos entre parentesis)
-
+    #Como el constructor es un metodo especial de una clase lo llamamos __init__ (Es algo definido de python)
     def __init__(self, id, nombre, nano, vuela, super_poder, poder_pelea):     #Con self agarramos el objeto y le ponemos los atributos que tenemos en el molde
         self.id = id
         self.nombre = nombre
@@ -25,14 +25,18 @@ class Personaje:
 
     def volar(self, altura, velocidad):
         if self.vuela:
-            print(f"Estoy volando a una altura de {altura} y a una velocidad de {velocidad} km/h")
+            print(f"Estoy volando a una altura de {altura} metros y a una velocidad de {velocidad} km/h")
         else:
             print(f"{self.nombre}: Usted no sabe volar")
 
-def mostrar_personaje(un_personaje: Personaje):
-    print(f"{un_personaje.nombre} -- {un_personaje.nanotecnologia} -- {un_personaje.super_poder}")
-
-#Ejemplo de uso del constructor
-personaje_1 = Personaje(5, "IronMan", True, True, "Disparo ultrasonico", 1000)
-
-mostrar_personaje(personaje_1)
+    def atacar(self, enemigo: "Personaje" ): #Tenemos que poner personaje por que o sino no sabemos de que esta hablando cuando le decimos enemigo. 
+        if self.poder_pelea > enemigo.poder_pelea:
+            print(f"Gano: {self.nombre}")
+            self.poder_pelea -= enemigo.poder_pelea
+            enemigo.poder_pelea = 0
+        elif self.poder_pelea < enemigo.poder_pelea:
+            print(f"Gano: {enemigo.nombre}")
+            enemigo.poder_pelea -= self.poder_pelea
+            self.poder_pelea = 0
+        else:
+            print("Empataron")

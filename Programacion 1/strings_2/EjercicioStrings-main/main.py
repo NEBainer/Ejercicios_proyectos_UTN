@@ -24,6 +24,7 @@ parametros necesarios para lograr el objetivo y mantener independencia de códig
 from os import system
 from data import lista_videos
 from class_video import Video
+# from class_video import promediar_vistas
 
 bandera_ingreso = False
 bandera_seguir = True

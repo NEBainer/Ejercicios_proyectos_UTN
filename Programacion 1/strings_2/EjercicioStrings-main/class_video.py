@@ -1,5 +1,4 @@
 from datetime import datetime
-from data import lista_videos
 
 class Video:
     def __init__(self, titulo: str, vistas: int, tiempo: int, url_youtube: str, fecha_lanzamiento: str):
@@ -50,9 +49,12 @@ class Video:
     # def ordenar_temas(lista: list["Video"]):
     #     for sesion in lista:
 
-    def promediar_vistas(lista):
-        promedio_vistas = 0
+    def promediar_vistas(lista_videos):
+        contador_vistas = 0
         for video in lista_videos:
-            promedio_vistas = promedio_vistas + Video.vistas
+            contador_vistas = contador_vistas + video.vistas
+        promedio_vistas = contador_vistas / len(lista_videos)
+        mensaje = f"El promedio de vistas es {promedio_vistas}"
+        return mensaje
         
 
